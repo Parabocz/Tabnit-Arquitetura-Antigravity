@@ -110,12 +110,14 @@ export default function Portfolio() {
               Residências e espaços comerciais desenvolvidos para diferentes regiões, culturas e estilos de vida.
             </p>
           </div>
-          <div className={styles.headerLink} style={{ opacity: 0 }}>
-            <a href="#projetos" className="link-underline group">
-              Ver todos os projetos
-              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-          </div>
+        </div>
+
+        {/* Link Acima da Imagem */}
+        <div className={styles.linkWrapper}>
+          <a href="#projetos" className="link-underline group">
+            Ver todos os projetos
+            <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+          </a>
         </div>
 
         {/* GSAP Interactive Layout */}

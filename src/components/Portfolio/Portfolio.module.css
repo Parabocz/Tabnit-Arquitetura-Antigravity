@@ -5,15 +5,12 @@
 .header {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   margin-bottom: 4rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .header {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
+    margin-bottom: 8rem; /* Espaço grande como no mockup */
   }
 }
 
@@ -35,8 +32,10 @@
   line-height: 1.6;
 }
 
-.headerLink {
-  flex-shrink: 0;
+.linkWrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.5rem;
 }
 
 /* Interativo: GSAP Grid */
@@ -59,7 +58,7 @@
 .projectList {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Alinhado ao topo como no mockup */
 }
 
 @media (min-width: 1024px) {
