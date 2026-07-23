@@ -41,42 +41,42 @@ const projects = [
     location: "São Paulo, SP",
     type: "Residencial",
     description: "Elegância minimalista em um apartamento urbano de luxo com vista privilegiada.",
-    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/apto_cr_mockup_1784775622276.jpg"
+    image: "/projects/apto_cr_mockup_1784775622276.jpg"
   },
   {
     title: "Casa HJ",
     location: "Ponta Grossa, PR",
     type: "Residencial",
     description: "Residência envolta por paisagismo, equilibrando texturas naturais e modernidade.",
-    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/casa_hj_mockup_1784775631747.jpg"
+    image: "/projects/casa_hj_mockup_1784775631747.jpg"
   },
   {
     title: "Projeto Overall",
     location: "Curitiba, PR",
     type: "Comercial",
     description: "Arquitetura corporativa de alta performance, unindo tecnologia e estética.",
-    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/projeto_overall_mockup_1784775640216.jpg"
+    image: "/projects/projeto_overall_mockup_1784775640216.jpg"
   },
   {
     title: "Casa M",
     location: "Joinville, SC",
     type: "Residencial",
     description: "Volumes geométricos puros criando uma moradia serena e imponente.",
-    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/casa_m_mockup_1784775648124.jpg"
+    image: "/projects/casa_m_mockup_1784775648124.jpg"
   },
   {
     title: "Casa V",
     location: "Ponta Grossa, PR",
     type: "Residencial",
     description: "Conexão perfeita entre interior e exterior com uma deslumbrante piscina infinita.",
-    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/casa_v_mockup_1784775675672.jpg"
+    image: "/projects/casa_v_mockup_1784775675672.jpg"
   },
   {
     title: "Casa GB",
     location: "Curitiba, PR",
     type: "Residencial",
     description: "Uso arrojado de pedras naturais e aço compondo uma residência contemporânea.",
-    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/casa_gb_mockup_1784775683848.jpg"
+    image: "/projects/casa_gb_mockup_1784775683848.jpg"
   }
 ];
 
