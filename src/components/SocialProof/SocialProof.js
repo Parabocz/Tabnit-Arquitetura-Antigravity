@@ -62,21 +62,10 @@ export default function SocialProof() {
           style={{ opacity: 0 }}
         >
           <div className={`font-serif ${styles.rating}`} ref={ratingRef}>0.0/5</div>
-          <div className="eyebrow" style={{ color: "var(--muted)" }}>21 Avaliações no Google</div>
+          <div className="eyebrow" style={{ color: "var(--muted)", marginBottom: "1rem" }}>21 Avaliações no Google</div>
           <div className={styles.stars}>
             {[1,2,3,4,5].map((_, i) => <Star key={i} size={16} fill="var(--ink)" color="var(--ink)" />)}
           </div>
-        </div>
-        
-        <div 
-          className={styles.block}
-          ref={(el) => (blocksRef.current[1] = el)}
-          style={{ opacity: 0 }}
-        >
-          <blockquote className={styles.quote}>
-            "Colaboração top, entrega no prazo e resultado final sensacional. Superaram nossas expectativas."
-          </blockquote>
-          <div className="eyebrow" style={{ color: "var(--muted)" }}>— Luis Andrei</div>
         </div>
       </div>
     </section>
