@@ -101,20 +101,21 @@ export default function Portfolio() {
   return (
     <section ref={sectionRef} className={`section ${styles.section}`} id="projetos">
       <div className="container">
-        {/* Cabeçalho */}
+        {/* Cabeçalho espelhando o estilo da Equipe */}
         <div className={styles.header} ref={headerRef}>
-          <div className={styles.headerText}>
-            <span className="eyebrow" style={{ color: "var(--muted)", opacity: 0 }}>Seleção de projetos</span>
-            <h2 className={`display-sm ${styles.title}`} style={{ opacity: 0 }}>Projetos em destaque</h2>
-            <p className={styles.desc} style={{ opacity: 0 }}>
+          <span className="eyebrow" style={{ color: "var(--muted)", opacity: 0 }}>Projetos</span>
+          
+          <h2 className={`display-sm ${styles.title}`} style={{ opacity: 0 }}>
+            Projetos em destaque
+          </h2>
+          
+          <div className={styles.paragraphs} style={{ opacity: 0 }}>
+            <p>
               Residências e espaços comerciais desenvolvidos para diferentes regiões, culturas e estilos de vida.
             </p>
           </div>
-        </div>
-
-        {/* Link Acima da Imagem */}
-        <div className={styles.linkWrapper}>
-          <a href="#projetos" className="link-underline group">
+          
+          <a href="#projetos" className={`link-underline group ${styles.link}`} style={{ opacity: 0 }}>
             Ver todos os projetos
             <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
           </a>

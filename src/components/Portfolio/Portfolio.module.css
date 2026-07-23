@@ -14,28 +14,26 @@
   }
 }
 
-.headerText {
-  display: flex;
-  flex-direction: column;
-}
-
 .title {
   margin-top: 1.5rem;
-  max-width: 16ch;
+  max-width: 22ch;
 }
 
-.desc {
-  margin-top: 1.5rem;
-  max-width: 32rem;
-  font-size: 1.0625rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.linkWrapper {
+.paragraphs {
+  margin-top: 1.75rem;
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1.5rem;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--ink-soft);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.link {
+  margin-top: 2.25rem;
+  align-self: flex-start;
+  color: var(--ink);
 }
 
 /* Interativo: GSAP Grid */
