@@ -145,6 +145,12 @@ export default function Portfolio() {
       { opacity: 1, scale: 1, duration: 0.8, ease: "power2.inOut" }
     );
     
+    // Anima a troca do texto de descrição abaixo da imagem
+    gsap.fromTo("#project-info-block", 
+      { opacity: 0, y: 10 }, 
+      { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+    );
+    
     setActiveIndex(index);
   };
 
@@ -192,17 +198,7 @@ export default function Portfolio() {
                 onClick={() => handleClick(index)}
                 style={{ opacity: 0 }}
               >
-                <div className={styles.itemInfo}>
-                  <h3 className={styles.projectTitle}>{project.title}</h3>
-                  <div className={styles.projectMeta}>
-                    <span>{project.location}</span>
-                    <span className={styles.separator}></span>
-                    <span>{project.type}</span>
-                  </div>
-                  <p className={styles.projectDesc}>
-                    {project.description}
-                  </p>
-                </div>
+                <h3 className={styles.projectTitle}>{project.title}</h3>
                 <div className={styles.itemIcon}>
                   <ArrowUpRight size={24} strokeWidth={1} />
                 </div>
@@ -210,28 +206,41 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Container de Imagens (Direita) */}
-          <div className={styles.imageContainer} ref={imageContainerRef}>
-            {projects.map((project, index) => (
-              <div 
-                key={index}
-                ref={(el) => (imagesRef.current[index] = el)}
-                className={styles.imageWrapper}
-                style={{ 
-                  opacity: index === 0 ? 1 : 0,
-                  zIndex: index === 0 ? 2 : 1
-                }}
-              >
-                <Image 
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className={styles.image}
-                  unoptimized
-                />
-                <div className={styles.overlay}></div>
+          {/* Coluna da Direita (Imagem + Detalhes - Sticky) */}
+          <div className={styles.rightColumn} ref={imageContainerRef}>
+            <div className={styles.imageContainer}>
+              {projects.map((project, index) => (
+                <div 
+                  key={index}
+                  ref={(el) => (imagesRef.current[index] = el)}
+                  className={styles.imageWrapper}
+                  style={{ 
+                    opacity: index === 0 ? 1 : 0,
+                    zIndex: index === 0 ? 2 : 1
+                  }}
+                >
+                  <Image 
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className={styles.image}
+                    unoptimized
+                  />
+                  <div className={styles.overlay}></div>
+                </div>
+              ))}
+            </div>
+            
+            <div className={styles.activeProjectInfo} id="project-info-block">
+              <div className={styles.projectMeta}>
+                <span>{projects[activeIndex].location}</span>
+                <span className={styles.separator}></span>
+                <span>{projects[activeIndex].type}</span>
               </div>
-            ))}
+              <p className={styles.projectDesc}>
+                {projects[activeIndex].description}
+              </p>
+            </div>
           </div>
           
         </div>
