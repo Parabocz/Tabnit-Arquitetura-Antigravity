@@ -161,6 +161,10 @@ export default function Portfolio() {
     }
   };
 
+  const half = Math.ceil(projects.length / 2);
+  const leftProjects = projects.slice(0, half);
+  const rightProjects = projects.slice(half);
+
   return (
     <section ref={sectionRef} className={`section ${styles.section}`} id="projetos">
       <div className="container">
@@ -184,30 +188,33 @@ export default function Portfolio() {
           </a>
         </div>
 
-        {/* GSAP Interactive Layout */}
+        {/* GSAP Interactive Layout - 3 Colunas */}
         <div className={styles.interactiveGrid}>
           
-          {/* Lista de Nomes (Esquerda) */}
+          {/* Lista Esquerda */}
           <div className={styles.projectList}>
-            {projects.map((project, index) => (
-              <div 
-                key={index}
-                className={`${styles.listItem} ${activeIndex === index ? styles.listItemActive : ""}`}
-                ref={(el) => (listItemsRef.current[index] = el)}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onClick={() => handleClick(index)}
-                style={{ opacity: 0 }}
-              >
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <div className={styles.itemIcon}>
-                  <ArrowUpRight size={24} strokeWidth={1} />
+            {leftProjects.map((project, idx) => {
+              const index = idx;
+              return (
+                <div 
+                  key={index}
+                  className={`${styles.listItem} ${activeIndex === index ? styles.listItemActive : ""}`}
+                  ref={(el) => (listItemsRef.current[index] = el)}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onClick={() => handleClick(index)}
+                  style={{ opacity: 0 }}
+                >
+                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  <div className={styles.itemIcon}>
+                    <ArrowUpRight size={24} strokeWidth={1} />
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          {/* Coluna da Direita (Imagem + Detalhes - Sticky) */}
-          <div className={styles.rightColumn} ref={imageContainerRef}>
+          {/* Coluna Central (Imagem + Detalhes - Sticky) */}
+          <div className={styles.centerColumn} ref={imageContainerRef}>
             <div className={styles.imageContainer}>
               {projects.map((project, index) => (
                 <div 
@@ -241,6 +248,28 @@ export default function Portfolio() {
                 {projects[activeIndex].description}
               </p>
             </div>
+          </div>
+
+          {/* Lista Direita */}
+          <div className={styles.projectList}>
+            {rightProjects.map((project, idx) => {
+              const index = idx + half;
+              return (
+                <div 
+                  key={index}
+                  className={`${styles.listItem} ${activeIndex === index ? styles.listItemActive : ""}`}
+                  ref={(el) => (listItemsRef.current[index] = el)}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onClick={() => handleClick(index)}
+                  style={{ opacity: 0 }}
+                >
+                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  <div className={styles.itemIcon}>
+                    <ArrowUpRight size={24} strokeWidth={1} />
+                  </div>
+                </div>
+              );
+            })}
           </div>
           
         </div>

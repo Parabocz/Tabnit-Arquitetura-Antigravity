@@ -39,20 +39,20 @@
 /* Interativo: GSAP Grid */
 .interactiveGrid {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   gap: 3rem;
 }
 
 @media (min-width: 1024px) {
   .interactiveGrid {
     display: grid;
-    grid-template-columns: 4fr 6fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 3rem;
     align-items: start;
   }
 }
 
-/* Lista da Esquerda */
+/* Lista */
 .projectList {
   display: flex;
   flex-direction: column;
@@ -106,7 +106,7 @@
 
 .projectTitle {
   font-family: var(--font-serif), serif;
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem); /* Diminui um pouco para caber 3 colunas suavemente */
   font-weight: 300;
   line-height: 1.1;
 }
@@ -123,16 +123,18 @@
   transform: translateX(0);
 }
 
-/* Coluna Direita (Sticky) */
-.rightColumn {
+/* Coluna Central (Sticky) */
+.centerColumn {
   display: flex;
   flex-direction: column;
+  order: -1; /* Mobile: Imagem fica em cima */
 }
 
 @media (min-width: 1024px) {
-  .rightColumn {
+  .centerColumn {
     position: sticky;
     top: 8rem; /* Distância do topo da tela ao descer */
+    order: 0;
   }
 }
 
