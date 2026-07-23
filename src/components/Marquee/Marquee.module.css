@@ -1,0 +1,50 @@
+.section {
+  padding: 6rem 0;
+  overflow: hidden;
+  background-color: var(--paper);
+}
+
+.marqueeWrapper {
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marqueeContent {
+  display: flex;
+  align-items: center;
+  animation: scroll 40s linear infinite;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  font-family: var(--font-serif), serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(26, 26, 26, 0.8);
+  white-space: nowrap;
+}
+
+.dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--ink);
+  opacity: 0.3;
+  margin: 0 1.75rem;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.3333%); /* Move 1/3 since we have 3 copies */
+  }
+}

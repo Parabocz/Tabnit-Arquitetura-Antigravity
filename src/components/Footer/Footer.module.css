@@ -1,0 +1,78 @@
+.footer {
+  padding: 8rem 0 3rem 0;
+  background-color: var(--charcoal);
+  color: #fff;
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .topSection {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+.ctaText {
+  max-width: 16ch;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #fff;
+  color: var(--ink);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 1.25rem 2rem;
+  border-radius: 2px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #e5e5e5;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .bottomSection {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.colTitle {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.colText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}

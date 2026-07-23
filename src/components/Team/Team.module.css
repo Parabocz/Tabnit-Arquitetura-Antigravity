@@ -1,0 +1,121 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+}
+
+.title {
+  margin-top: 1.5rem;
+  max-width: 22ch;
+}
+
+.paragraphs {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--ink-soft);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.link {
+  margin-top: 2.25rem;
+  align-self: flex-start;
+  color: var(--ink);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 768px) {
+  .row {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.imageCol {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .imageCol {
+    width: 35%;
+    flex-shrink: 0;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #e5e5e5;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .imageWrapper {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+.image {
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: transform 0.8s ease;
+}
+
+.row:hover .image {
+  transform: scale(1.03);
+}
+
+.textCol {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .textCol {
+    padding: 3rem 4rem;
+    width: 65%;
+  }
+}
+
+.memberName {
+  font-family: var(--font-serif), serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.prefix {
+  color: #CBA55D; /* Dourado/Bronze parecido com a imagem */
+}
+
+.memberRole {
+  margin-top: 0.5rem;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+}
+
+.memberDesc {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}

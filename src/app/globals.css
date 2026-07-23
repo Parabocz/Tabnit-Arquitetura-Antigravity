@@ -1,0 +1,142 @@
+:root {
+  /* Cores Exatas da Referência */
+  --paper: #f9f9f7; /* Fundo off-white elegante */
+  --ink: #1a1a1a; /* Texto principal escuro */
+  --ink-soft: rgba(26, 26, 26, 0.7); /* Texto secundário escuro */
+  --charcoal: #141414; /* Fundo escuro da Hero */
+  --muted: rgba(26, 26, 26, 0.5); /* Textos pequenos/apagados */
+  --line: rgba(26, 26, 26, 0.12); /* Bordas no tema claro */
+  
+  --header-h: 110px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans), sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Tipografia */
+.font-serif {
+  font-family: var(--font-serif), serif;
+}
+
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+.display {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.display-sm {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.1;
+  font-weight: 300;
+}
+
+/* Grid & Layout */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 8rem 0;
+}
+
+.section-sm {
+  padding: 6rem 0;
+}
+
+/* Botões / Links */
+.btn-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.1rem 2rem;
+  background-color: #fff;
+  color: var(--ink);
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.btn-light:hover {
+  background-color: #f0f0f0;
+}
+
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.1rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.btn-outline-light:hover {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.link-underline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 2px;
+  font-weight: 500;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.link-underline:hover::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}

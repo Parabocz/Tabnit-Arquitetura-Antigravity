@@ -1,0 +1,58 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.4s ease, border-bottom 0.4s ease;
+  color: #fff; /* O padrão é branco na hero escura */
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background-color: rgba(249, 249, 247, 0.95);
+  backdrop-filter: blur(10px);
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-serif), serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+    gap: 2rem;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+}
+
+.waLink {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.waLink:hover {
+  opacity: 0.6;
+}

@@ -1,0 +1,40 @@
+.section {
+  padding: 8rem 0;
+  border-bottom: 1px solid var(--line);
+  background-color: var(--paper);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-top-color: var(--ink);
+}
+
+.text {
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--ink);
+}

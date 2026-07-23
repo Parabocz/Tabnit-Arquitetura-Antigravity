@@ -1,0 +1,90 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .textContent {
+    order: 1;
+    padding-right: 2rem;
+  }
+}
+
+.title {
+  margin-top: 1.5rem;
+  max-width: 18ch;
+}
+
+.paragraphs {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--ink-soft);
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.link {
+  margin-top: 2.25rem;
+  align-self: flex-start;
+  color: var(--ink);
+}
+
+.imageCol {
+  order: 1;
+}
+
+@media (min-width: 1024px) {
+  .imageCol {
+    order: 2;
+  }
+}
+
+.figure {
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: var(--charcoal);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transform: translateY(-5%); /* Leve paralax compensado pela imagem baseada no dalber */
+}
+
+.caption {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.caption span:first-child {
+  font-size: 1rem;
+  color: var(--ink);
+}
