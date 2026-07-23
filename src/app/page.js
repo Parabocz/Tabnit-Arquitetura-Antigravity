@@ -5,7 +5,7 @@ import Differentials from "@/components/Differentials/Differentials";
 import Team from "@/components/Team/Team";
 import Portfolio from "@/components/Portfolio/Portfolio";
 import Process from "@/components/Process/Process";
-import Marquee from "@/components/Marquee/Marquee";
+import Testimonials from "@/components/Testimonials/Testimonials";
 import Footer from "@/components/Footer/Footer";
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
         <Team />
         <Portfolio />
         <Process />
-        <Marquee />
+        <Testimonials />
       </main>
       <Footer />
     </>

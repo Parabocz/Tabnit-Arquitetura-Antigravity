@@ -1,93 +1,53 @@
 .section {
   padding: 8rem 0;
-  background-color: var(--background);
-  overflow: hidden;
+  border-top: 1px solid var(--line);
+  background-color: var(--paper);
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 4rem;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
 }
 
-.title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 1rem;
-}
-
-.subtitle {
-  color: var(--text-muted);
-}
-
-.carouselContainer {
-  width: 100%;
-  padding-left: max(2rem, calc((100vw - 1200px) / 2 + 2rem));
-  /* Adiciona padding extra à direita para o último item não grudar */
-  padding-right: 2rem;
-}
-
-.carousel {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; /* Física elástica no iOS */
-  scrollbar-width: none; /* Firefox */
-  padding-bottom: 2rem; /* Espaço para shadow */
-}
-
-.carousel::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
 }
 
 .card {
-  flex: 0 0 400px;
-  scroll-snap-align: start;
-  background: var(--surface);
-  border: 1px solid var(--surface-border);
-  padding: 3rem 2.5rem;
-  border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  transition: transform 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+@media (min-width: 768px) {
+  .card:not(:last-child) {
+    border-right: 1px solid var(--line);
+    padding-right: 3rem;
+  }
 }
 
-.quoteIcon {
-  color: var(--primary);
-  opacity: 0.5;
+.stars {
+  display: flex;
+  gap: 0.25rem;
 }
 
 .text {
-  font-family: var(--font-playfair), serif;
+  font-family: var(--font-serif), serif;
   font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 300;
   line-height: 1.6;
-  color: var(--foreground);
+  color: var(--ink);
   flex-grow: 1;
 }
 
-.authorInfo {
-  margin-top: 1rem;
-  border-top: 1px solid var(--surface-border);
-  padding-top: 1.5rem;
-}
-
-.name {
-  font-size: 1.1rem;
-  color: var(--primary);
-  margin-bottom: 0.25rem;
-}
-
-.role {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-@media (max-width: 768px) {
-  .card {
-    flex: 0 0 85vw; /* Ocupa a maior parte da tela no mobile */
-  }
+.author {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
 }

@@ -12,18 +12,21 @@ const projects = [
     title: "Casa PK",
     location: "Ponta Grossa, PR",
     type: "Residencial",
+    description: "Arquitetura contemporânea de alto padrão, focada na integração de ambientes e conforto.",
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop"
   },
   {
     title: "Casa TV",
     location: "Ponta Grossa, PR",
     type: "Residencial",
+    description: "Interiores sofisticados com iluminação autoral e materiais de curadoria.",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000&auto=format&fit=crop"
   },
   {
     title: "Projeto Canaan",
     location: "Curitiba, PR",
     type: "Comercial",
+    description: "Espaço corporativo focado em produtividade, com layout inteligente e design acolhedor.",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop"
   }
 ];
@@ -135,6 +138,9 @@ export default function Portfolio() {
                     <span className={styles.separator}></span>
                     <span>{project.type}</span>
                   </div>
+                  <p className={styles.projectDesc}>
+                    {project.description}
+                  </p>
                 </div>
                 <div className={styles.itemIcon}>
                   <ArrowUpRight size={24} strokeWidth={1} />

@@ -1,48 +1,73 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import anime from "animejs";
 import styles from "./Testimonials.module.css";
-import { Quote } from "lucide-react";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Eduarda Schram",
-    text: "O nível de confiança que a equipe nos passou desde a primeira reunião foi absurdo. Entregaram no prazo, com uma qualidade que superou nossas expectativas. A obra foi tranquila, sem as dores de cabeça habituais.",
-    role: "Cliente Residencial"
+    text: "Um projeto que superou nossas expectativas! A equipe foi atenciosa desde a primeira reunião e o resultado ficou incrível. A atenção aos detalhes faz toda a diferença.",
+    author: "Ricardo S."
   },
   {
-    name: "Meri Gomes",
-    text: "Pontualidade e profissionalismo impecáveis. A união da arquitetura com a engenharia fez toda a diferença para o sucesso do nosso projeto. Senti que meu investimento estava seguro.",
-    role: "Cliente Comercial"
+    text: "Trabalho impecável e muito profissional. Gostamos muito de como conduziram todo o processo, sempre transparentes e rápidos no retorno.",
+    author: "Marcos e Juliana"
   },
   {
-    name: "Luis Andrei",
-    text: "Colaboração top, entrega no prazo e o resultado final ficou sensacional. Recomendo de olhos fechados.",
-    role: "Cliente Residencial"
+    text: "Excelente escritório! Conseguiram traduzir perfeitamente o que queríamos em um projeto moderno, funcional e dentro do orçamento estipulado.",
+    author: "Fernanda Lima"
   }
 ];
 
 export default function Testimonials() {
+  const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            anime({
+              targets: cardsRef.current,
+              translateY: [20, 0],
+              opacity: [0, 1],
+              delay: anime.stagger(150),
+              easing: "easeOutCubic",
+              duration: 800
+            });
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.section}>
-      <div className={`container`}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>O Que Dizem Nossos Clientes</h2>
-          <p className={styles.subtitle}>Confiança construída com resultados reais.</p>
-        </div>
-      </div>
-      
-      {/* Drag to scroll container */}
-      <div className={styles.carouselContainer}>
-        <div className={styles.carousel}>
-          {testimonials.map((item, index) => (
-            <div key={index} className={styles.card}>
-              <Quote className={styles.quoteIcon} size={32} />
-              <p className={styles.text}>"{item.text}"</p>
-              <div className={styles.authorInfo}>
-                <h4 className={styles.name}>{item.name}</h4>
-                <span className={styles.role}>{item.role}</span>
-              </div>
+    <section ref={sectionRef} className={styles.section}>
+      <div className={`container ${styles.grid}`}>
+        {testimonials.map((t, i) => (
+          <div 
+            key={i} 
+            className={styles.card}
+            ref={(el) => (cardsRef.current[i] = el)}
+            style={{ opacity: 0 }}
+          >
+            <div className={styles.stars}>
+              {[1,2,3,4,5].map((_, idx) => <Star key={idx} size={14} fill="var(--ink)" color="var(--ink)" />)}
             </div>
-          ))}
-        </div>
+            <p className={styles.text}>"{t.text}"</p>
+            <span className={styles.author}>— {t.author}</span>
+          </div>
+        ))}
       </div>
     </section>
   );
