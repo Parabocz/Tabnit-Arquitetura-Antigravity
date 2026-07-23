@@ -28,6 +28,55 @@ const projects = [
     type: "Comercial",
     description: "Espaço corporativo focado em produtividade, com layout inteligente e design acolhedor.",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop"
+  },
+  {
+    title: "Casa FD",
+    location: "Ponta Grossa, PR",
+    type: "Residencial",
+    description: "Fachada imponente e layout que prioriza a privacidade sem perder a conexão visual.",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1000&auto=format&fit=crop"
+  },
+  {
+    title: "Apto CR",
+    location: "São Paulo, SP",
+    type: "Residencial",
+    description: "Elegância minimalista em um apartamento urbano de luxo com vista privilegiada.",
+    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/apto_cr_mockup_1784775622276.jpg"
+  },
+  {
+    title: "Casa HJ",
+    location: "Ponta Grossa, PR",
+    type: "Residencial",
+    description: "Residência envolta por paisagismo, equilibrando texturas naturais e modernidade.",
+    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/casa_hj_mockup_1784775631747.jpg"
+  },
+  {
+    title: "Projeto Overall",
+    location: "Curitiba, PR",
+    type: "Comercial",
+    description: "Arquitetura corporativa de alta performance, unindo tecnologia e estética.",
+    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/projeto_overall_mockup_1784775640216.jpg"
+  },
+  {
+    title: "Casa M",
+    location: "Joinville, SC",
+    type: "Residencial",
+    description: "Volumes geométricos puros criando uma moradia serena e imponente.",
+    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/casa_m_mockup_1784775648124.jpg"
+  },
+  {
+    title: "Casa V",
+    location: "Ponta Grossa, PR",
+    type: "Residencial",
+    description: "Conexão perfeita entre interior e exterior com uma deslumbrante piscina infinita.",
+    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/casa_v_mockup_1784775675672.jpg"
+  },
+  {
+    title: "Casa GB",
+    location: "Curitiba, PR",
+    type: "Residencial",
+    description: "Uso arrojado de pedras naturais e aço compondo uma residência contemporânea.",
+    image: "/api/files/ab3ad7d6-a229-4ed3-b338-ec798e5eef96/casa_gb_mockup_1784775683848.jpg"
   }
 ];
 
@@ -36,6 +85,7 @@ export default function Portfolio() {
   const headerRef = useRef(null);
   const listItemsRef = useRef([]);
   const imagesRef = useRef([]);
+  const imageContainerRef = useRef(null);
   
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -98,6 +148,13 @@ export default function Portfolio() {
     setActiveIndex(index);
   };
 
+  const handleClick = (index) => {
+    handleMouseEnter(index);
+    if (imageContainerRef.current) {
+      imageContainerRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
     <section ref={sectionRef} className={`section ${styles.section}`} id="projetos">
       <div className="container">
@@ -132,6 +189,7 @@ export default function Portfolio() {
                 className={`${styles.listItem} ${activeIndex === index ? styles.listItemActive : ""}`}
                 ref={(el) => (listItemsRef.current[index] = el)}
                 onMouseEnter={() => handleMouseEnter(index)}
+                onClick={() => handleClick(index)}
                 style={{ opacity: 0 }}
               >
                 <div className={styles.itemInfo}>
@@ -153,7 +211,7 @@ export default function Portfolio() {
           </div>
 
           {/* Container de Imagens (Direita) */}
-          <div className={styles.imageContainer}>
+          <div className={styles.imageContainer} ref={imageContainerRef}>
             {projects.map((project, index) => (
               <div 
                 key={index}
